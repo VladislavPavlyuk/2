@@ -6,22 +6,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg fixed-top box-shadow">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav flex-column">
                 <li class="nav-item">
+                    <a class="nav-link"><?php echo count(file ("user.txt"));?> users registered</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" href="addUser.php">Add User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="showUser.php">Show User</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><?php echo count(file ("user.txt"));?> users registered</a>
+                    <a class="nav-link active" href="showUser.php">Show User</a>
                 </li>
             </ul>
         </div>
-
     </div>
 </nav>
 <div>

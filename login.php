@@ -3,23 +3,21 @@ $redMessage = '';
 $greenMessage = '';
 
 if (!empty($_POST)) {
-    if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]))
+    if (isset($_POST["username"]) && isset($_POST["password"]))
     {
         $login = htmlentities($_REQUEST['username']);
         $password = htmlentities($_REQUEST['password']);
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
         $fileString=file_get_contents("user.txt");
-        $pos=strstr($fileString, $login);
-        if ($pos===false) {
-            $userdata = $login.": ".$hashedPassword.": ".$_POST["email"]."\r\n";
-            $file=fopen("user.txt", "a");
-            fwrite($file, $userdata);
-            fclose($file);
-            $greenMessage = 'User '.$login.' added successfully!';
+        $pos_username=strstr($fileString, $login);
+        $pos_password=strstr($fileString, $hashedPassword);
+        if ($pos_username && $hashedPassword) {
+            $greenMessage = $login.' has logged successfully!';
             header("Location: index.php");
         }
         else {
-            $redMessage = 'User with such username already exists';
+            $redMessage = 'Access denied';
         }
     }
     else {
@@ -31,21 +29,16 @@ if (!empty($_POST)) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add User</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <form action="addUser.php" method="post">
-            <div style="color: red"><?= $redMessage ?></div>
-            <div style="color: green"><?= $greenMessage ?></div>
+    <div style="color: red"><?= $redMessage ?></div>
+    <div style="color: green"><?= $greenMessage ?></div>
 
-            <div class="form-group">
-                <label for="InputEmail">Email address</label>
-                <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
+    <div class="row">
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label for="Username">Username</label>
                 <input type="text" class="form-control" id="Username" placeholder="username" name="username">
