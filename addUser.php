@@ -55,6 +55,7 @@ if (!empty($_POST)) {
                 <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password">
             </div>
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
+            <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
         </form>
     </div>
 </div>

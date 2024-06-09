@@ -14,7 +14,7 @@ if (!empty($_POST)) {
         $pos_password=strstr($fileString, $hashedPassword);
         if ($pos_username && $hashedPassword) {
             $greenMessage = $login.' has logged successfully!';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
         else {
             $redMessage = 'Access denied';
@@ -48,6 +48,7 @@ if (!empty($_POST)) {
                 <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password">
             </div>
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
+            <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
         </form>
     </div>
 </div>
