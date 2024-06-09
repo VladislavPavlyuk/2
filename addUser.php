@@ -7,11 +7,12 @@ if (!empty($_POST)) {
     {
         $login = htmlentities($_REQUEST['username']);
         $password = htmlentities($_REQUEST['password']);
+        $email = htmlentities($_REQUEST['email']);
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $fileString=file_get_contents("user.txt");
         $pos=strstr($fileString, $login);
         if ($pos===false) {
-            $userdata = $login.": ".$hashedPassword.": ".$_POST["email"]."\r\n";
+            $userdata = $login.":".$hashedPassword.":".$email.":"."\r\n";
             $file=fopen("user.txt", "a");
             fwrite($file, $userdata);
             fclose($file);
@@ -38,9 +39,6 @@ if (!empty($_POST)) {
 <div class="container">
     <div class="row">
         <form action="addUser.php" method="post">
-            <div style="color: red"><?= $redMessage ?></div>
-            <div style="color: green"><?= $greenMessage ?></div>
-
             <div class="form-group">
                 <label for="InputEmail">Email address</label>
                 <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email">
@@ -57,6 +55,8 @@ if (!empty($_POST)) {
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
             <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
             <button type="button" class="btn btn-primary" onclick="location.href = 'index.php';">Home</button>
+            <div style="color: red"><?= $redMessage ?></div>
+            <div style="color: green"><?= $greenMessage ?></div>
         </form>
     </div>
 </div>

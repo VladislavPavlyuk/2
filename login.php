@@ -7,14 +7,27 @@ if (!empty($_POST)) {
     {
         $login = htmlentities($_REQUEST['username']);
         $password = htmlentities($_REQUEST['password']);
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $fileString=file_get_contents("user.txt");
         $pos_username=strstr($fileString, $login);
-        $pos_password=strstr($fileString, $hashedPassword);
-        if ($pos_username && $hashedPassword) {
-            $greenMessage = $login.' has logged successfully!';
-            //header("Location: index.php");
+
+        if ($pos_username) {
+            $words = explode(":", $fileString);
+
+            $keywordIndex = array_search(isset($_POST["username"]), $words);
+
+            if ($keywordIndex !== false && isset($words[$keywordIndex + 1]))
+            {
+                $hash = $words[$keywordIndex + 1];
+
+                if (password_verify($password, $hash))
+                {
+                    $greenMessage = $login.' has logged successfully!';
+                }
+                else {
+                    $redMessage = 'Password is not correct';
+                }
+            }
         }
         else {
             $redMessage = 'Access denied';
@@ -34,9 +47,6 @@ if (!empty($_POST)) {
 </head>
 <body>
 <div class="container">
-    <div style="color: red"><?= $redMessage ?></div>
-    <div style="color: green"><?= $greenMessage ?></div>
-
     <div class="row">
         <form action="login.php" method="post">
             <div class="form-group">
@@ -50,6 +60,8 @@ if (!empty($_POST)) {
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
             <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
             <button type="button" class="btn btn-primary" onclick="location.href = 'index.php';">Home</button>
+            <div style="color: red"><?= $redMessage ?></div>
+            <div style="color: green"><?= $greenMessage ?></div>
 
         </form>
     </div>

@@ -1,2 +1,3 @@
-vlad: $2y$10$zWOX34OUDX5BWSx6Jer0y.fvGep7m0IVi6zfAd9N544AHqcUydQlW: vlad@vlad.com
-olga: $2y$10$ZfyFNzTd7yw9xFhKQZlZm.HJuB2rY97FRcQvJMN82Ch7QxzvV/jFO: vlad@vlad.com
+vlad:$2y$10$veKfCIxeoStgNR6GcJ2H6OhjMrtssNYtvbUnjkShenz41lEYypnDC:vlad@vlad.com:
+olga:$2y$10$KBmhmq0aKCMumNNZnzkEEe5a8Pc15Hdc6/3dfuSJ81BeHiIY/4lg2:olga@olga.com:
+anna:$2y$10$NNiHs6715geoqlB.cZGToO0D.H34z5wAZ3JZPv62OJLjw17TtcUqe:anna@anna.com:
