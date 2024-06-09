@@ -49,6 +49,8 @@ if (!empty($_POST)) {
             </div>
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
             <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="location.href = 'index.php';">Home</button>
+
         </form>
     </div>
 </div>

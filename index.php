@@ -18,10 +18,10 @@
                     <a class="nav-link active" href="login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="addUser.php">Add User</a>
+                    <a class="nav-link active" href="addUser.php">Add New User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="showUser.php">Show User</a>
+                    <a class="nav-link active" href="showUser.php">Show Users List</a>
                 </li>
             </ul>
         </div>

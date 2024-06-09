@@ -29,6 +29,7 @@ foreach($new_arr as $i => $a)
                 ?>
             </table>
             <button align="center" type="button" class="btn btn-primary" onclick="history.back()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="location.href = 'index.php';">Home</button>
         </form>
     </div>
 </div>

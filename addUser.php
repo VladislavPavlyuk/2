@@ -16,7 +16,7 @@ if (!empty($_POST)) {
             fwrite($file, $userdata);
             fclose($file);
             $greenMessage = 'User '.$login.' added successfully!';
-            header("Location: index.php");
+            //header("Location: index.php");
         }
         else {
             $redMessage = 'User with such username already exists';
@@ -56,6 +56,7 @@ if (!empty($_POST)) {
             </div>
             <button type="submit" class="btn btn-primary" name="done">Submit</button>
             <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
+            <button type="button" class="btn btn-primary" onclick="location.href = 'index.php';">Home</button>
         </form>
     </div>
 </div>
