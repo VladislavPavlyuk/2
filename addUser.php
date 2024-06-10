@@ -3,7 +3,8 @@ $redMessage = '';
 $greenMessage = '';
 
 if (!empty($_POST)) {
-    if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]))
+    if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"])
+    &&$_POST["username"]!=""&&$_POST["password"]!=""&&$_POST["email"]!="")
     {
         $login = htmlentities($_REQUEST['username']);
         $password = htmlentities($_REQUEST['password']);
