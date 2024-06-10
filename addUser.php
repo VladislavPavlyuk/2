@@ -22,6 +22,7 @@ if (!empty($_POST)) {
         }
         else {
             $redMessage = 'User with such username already exists';
+
         }
     }
     else {
